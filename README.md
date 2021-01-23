@@ -20,24 +20,25 @@ I. Pre-Requisits
 II. How to run?
 
       1.  Download this project into your Linux VM and extract it to local folder or simply run git clone cmd
-      2.  python3 gists_access.py --token <<GITHUB_TOKEN>> --username <<GITHUB_USER>>
+      2.  Run below command 
+            python3 gists_access.py --token <<GITHUB_TOKEN>> --username <<GITHUB_USER>>
             <<GITHUB_TOKEN>>  - personal access token copied earlier
-            <<GITHUB_USER>>   - Any github user id who published their public gists at github.com
+            <<GITHUB_USER>>   - Any github user ID who published their public gists at github.com  ex: avlakshmanarao
 
 
 
 
 III. How it works? - design consideration
 
-      1.  Passing GITHUB_TOKEN is not mandatory initially.. but after running few times Github blocks access due to limitations imposed on unauthenticated user.  Therefore I made it mandatory for supplying authenticated GITHUB_TOKEN
+      1.  Passing GITHUB_TOKEN was not mandatory initially.. but after running few times Github blocks access due to limitations imposed on unauthenticated user.  Therefore I made it mandatory for supplying authenticated GITHUB_TOKEN
 
-      2.  Program will generate gitdb.json in the same directory by TinyDB to persist last access datetime stamp for every user.
+      2.  Program will generate "gitdb.json" in the same directory by TinyDB package to persist last access datetimestamp for every user.
 
       3.  First when main program calls function  "get_gists_since_lastaccess", following thing will happen
-          3a) Program try to fetch last access time stamp of github user from local DB
+          3a) Program try to fetch last access datetimestamp of github user from localDB 
           3b) If local record doesn't exists, it will run to fetch all gists posted by user and saves timestamp to gitdb.json
-          3c) For all subsequent runs, program will fetch all gists since last successful saved timestamp and updates existing timestamp.  
-          3d) If no further gists posted by user since last time, program displays message.
+          3c) For all subsequent runs, program will fetch all gists since last successful saved datetimestamp and updates with new datetimestamp.  
+          3d) If no further gists posted by user since last time, program displays appropriate message.
 
           Note: Ensure you pass valid github username, otherwise, it will end-up with error "Github user doesn't exists"
 
