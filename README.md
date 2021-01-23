@@ -2,6 +2,7 @@
 Python script to list down all latest gists since last access time for specified user
 
 I. Pre-Requisits
+
       1. Have Linux VM with Ubuntu or any other equivalent Linux flavour
       
       2. python3 will be automatically installed with latest version of Linux OS.
